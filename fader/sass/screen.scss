@@ -18,6 +18,30 @@
 
 }
 
+@font-face {
+    font-family: 'lane';
+    src: url('../lane/LANENAR_-webfont.eot');
+    src: url('../lane/LANENAR_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../lane/LANENAR_-webfont.woff') format('woff'),
+         url('../lane/LANENAR_-webfont.ttf') format('truetype'),
+         url('../lane/LANENAR_-webfont.svg#LaneNarrowRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'lane-upper';
+    src: url('../lane/LANEUP__-webfont.eot');
+    src: url('../lane/LANEUP__-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../lane/LANEUP__-webfont.woff') format('woff'),
+         url('../lane/LANEUP__-webfont.ttf') format('truetype'),
+         url('../lane/LANEUP__-webfont.svg#LaneUpperRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 
 
 @mixin links {
@@ -30,11 +54,12 @@
 }
 
 @mixin headers {
-	font-family: 'capsuula';
+	font-family: 'lane';
 	color: $dkblue;
 }
 
 $dkblue : #162628;
+$blue : #A3C7CE;
 
 html {
 	height: 100%;
@@ -45,13 +70,15 @@ body {
 	padding: 0;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	// needs latest Compass, add '@import "compass"' to your scss
-	background-color: rgb(255,255,255); // Old browsers
-	@include filter-gradient(#ffffff, #162628, vertical); // IE6-8
-	// IE9 SVG, needs conditional override of 'filter' to 'none'
-	$experimental-support-for-svg: true;
-	@include background-image(linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 4%,rgba(22,38,40,1) 100%));
 	font-family: Helvetica;
+	
+	// needs latest Compass, add '@import "compass"' to your scss
+background-color: rgb(255,255,255); // Old browsers
+@include filter-gradient(#ffffff, #a3c7ce, vertical); // IE6-8
+// IE9 SVG, needs conditional override of 'filter' to 'none'
+$experimental-support-for-svg: true;
+@include background-image(linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(163,199,206,1) 100%));
+
 }
 
 header {
@@ -65,7 +92,7 @@ header {
 	}
 	
 	p {
-		font-family: 'capsuula';
+		font-family: 'lane';
 		font-size: 14px;
 		color: $dkblue;
 	}
@@ -92,12 +119,9 @@ header {
 			line-height: 1.3em;
 			font-weight: 100;
 		}
-		section:first-child {
-			opacity: 1;
-		}
 		section {
 			display: block;
-			background: #FC6028;
+			background: #43BA28;
 			position: absolute;
 			height: 260px;
 			top: 0;
@@ -105,21 +129,22 @@ header {
 			padding: 20px;
 			z-index: 1;
 			opacity: 0;
+			@include border-radius(15px);
 				
 			+ section {
-				background: #FC5928;
+				background: #94BF2A;
 				
 				+ section {
-					background: #FC9228;
+					background: #B5BF2A;
 					
 					+ section {
-						background: #F9B004;
+						background: #D1BE2E;
 						
 						+ section {
-							background: #FCE305;
+							background: #FCAE3A;
 
 							+ section {
-								background: #FCF18D;
+								background: #FF9430;
 							}
 						}
 					}
@@ -135,10 +160,10 @@ header {
 		padding-top: 310px;
 		
 		a {
-			font-family: 'capsuula';
+			font-family: 'lane';
 			font-size: 18px;
 			text-align: center;
-			padding: 0 30px;
+			padding: 0 28px;
 			@include links;
 		}
 		
