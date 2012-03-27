@@ -23,6 +23,7 @@
 @mixin links {
 	color: #162628;
 	text-decoration: none;
+	outline: none;
 	@include transition-property(color);
 	@include transition-duration(1s);
 	@include transition-timing-function(ease-in);
@@ -39,21 +40,22 @@ html {
 	height: 100%;
 }
 body {
-height: 100%;
-margin: 0;
-padding: 0;
-background-attachment: fixed;
-background-repeat: no-repeat;
-// needs latest Compass, add '@import "compass"' to your scss
-background-color: rgb(255,255,255); // Old browsers
-@include filter-gradient(#ffffff, #162628, vertical); // IE6-8
-// IE9 SVG, needs conditional override of 'filter' to 'none'
-$experimental-support-for-svg: true;
-@include background-image(linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 4%,rgba(22,38,40,1) 100%));
-font-family: Helvetica;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	// needs latest Compass, add '@import "compass"' to your scss
+	background-color: rgb(255,255,255); // Old browsers
+	@include filter-gradient(#ffffff, #162628, vertical); // IE6-8
+	// IE9 SVG, needs conditional override of 'filter' to 'none'
+	$experimental-support-for-svg: true;
+	@include background-image(linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 4%,rgba(22,38,40,1) 100%));
+	font-family: Helvetica;
 }
 
 header {
+	display: block;
 	padding: 30px;
 	
 	h1 {
@@ -94,7 +96,7 @@ header {
 			opacity: 1;
 		}
 		section {
-			
+			display: block;
 			background: #FC6028;
 			position: absolute;
 			height: 260px;
@@ -129,6 +131,7 @@ header {
 		}
 	}
 	nav {
+		display: block;
 		padding-top: 310px;
 		
 		a {

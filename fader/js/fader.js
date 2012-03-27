@@ -29,15 +29,16 @@ var OO = {
 	
 	addClass : function (elem, name) {
 		var klass = elem.getAttribute('class'),
-		pattern = new RegExp(name);	
-		
+			pattern = new RegExp(name);
+					
 		if (pattern.test(klass) === true){
-			return false;
+			return true;
 		} else if (!(klass)){
 			elem.setAttribute("class", name);
+			return false;
 		} else if (klass && klass != name) {
-			
 			elem.setAttribute("class", klass += ' ' +name );
+			return false;
 		}
 	},
 	
@@ -61,17 +62,22 @@ var OO = {
 			elem = arr.foundKids[item],
 			j;
 				
-			OO.addClass(elem, 'active');
-			OO.fader(elem, item, arr);
-			
-			for (j=0; j<arr.foundKidsLen; j++) {
-				if (j != item) {
-					OO.removeClass(arr.foundKids[j], 'active');
-				}
+			if (OO.addClass(elem, 'active') === true){
+				evt.preventDefault();
+				return false;
+			} else {
+				OO.addClass(elem, 'active');
+				OO.fader(elem, item, arr);			
+				for (j=0; j<arr.foundKidsLen; j++) {
+					if (j != item) {
+						OO.removeClass(arr.foundKids[j], 'active');
+					}
+			}
 			}
 						
 		evt.preventDefault();
 	},
+	
 	
 	fader : function (elem, item, arr) {
 		var i = 0,
@@ -110,4 +116,21 @@ var OO = {
 var wrap = document.getElementById('wrap'),
 	slides = document.getElementById('slides'),
 	nav = document.getElementsByTagName('nav')[0];
-nav.addEventListener("click", OO.controls, false);
+
+if (window.attachEvent) {
+	nav.attachEvent("click", OO.controls);
+} else {
+	nav.addEventListener("click", OO.controls, false);
+}
+
+
+/* John Resig 
+		addEvent : function ( obj, type, fn ) {
+		  if ( obj.attachEvent ) {
+		    obj['e'+type+fn] = fn;
+		    obj[type+fn] = function(){obj['e'+type+fn]( window.event );}
+		    obj.attachEvent( 'on'+type, obj[type+fn] );
+		  } else
+		    obj.addEventListener( type, fn, false );
+		}
+		*/

@@ -22,7 +22,7 @@ html { height: 100%; }
 
 body { height: 100%; margin: 0; padding: 0; background-attachment: fixed; background-repeat: no-repeat; background-color: white; *zoom: 1; filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FF162628'); background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iNCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxNjI2MjgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='); background-size: 100%; background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(4%, #ffffff), color-stop(100%, #162628)); background-image: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 4%, #162628 100%); background-image: -moz-linear-gradient(top, #ffffff 0%, #ffffff 4%, #162628 100%); background-image: -o-linear-gradient(top, #ffffff 0%, #ffffff 4%, #162628 100%); background-image: -ms-linear-gradient(top, #ffffff 0%, #ffffff 4%, #162628 100%); background-image: linear-gradient(top, #ffffff 0%, #ffffff 4%, #162628 100%); font-family: Helvetica; }
 
-header { padding: 30px; }
+header { display: block; padding: 30px; }
 header h1 { font-size: 20px; font-family: 'capsuula'; color: #162628; }
 header p { font-family: 'capsuula'; font-size: 14px; color: #162628; }
 
@@ -32,15 +32,15 @@ header p { font-family: 'capsuula'; font-size: 14px; color: #162628; }
 #wrap #slides h2 { font-size: 60px; text-transform: lowercase; }
 #wrap #slides p { font-size: 12px; line-height: 1.3em; font-weight: 100; }
 #wrap #slides section:first-child { opacity: 1; }
-#wrap #slides section { background: #FC6028; position: absolute; height: 260px; top: 0; left: 0; padding: 20px; z-index: 1; opacity: 0; }
+#wrap #slides section { display: block; background: #FC6028; position: absolute; height: 260px; top: 0; left: 0; padding: 20px; z-index: 1; opacity: 0; }
 #wrap #slides section + section { background: #FC5928; }
 #wrap #slides section + section + section { background: #FC9228; }
 #wrap #slides section + section + section + section { background: #F9B004; }
 #wrap #slides section + section + section + section + section { background: #FCE305; }
 #wrap #slides section + section + section + section + section + section { background: #FCF18D; }
 #wrap #slides .active { z-index: 10; }
-#wrap nav { padding-top: 310px; }
-#wrap nav a { font-family: 'capsuula'; font-size: 18px; text-align: center; padding: 0 30px; color: #162628; text-decoration: none; -webkit-transition-property: color; -moz-transition-property: color; -ms-transition-property: color; -o-transition-property: color; transition-property: color; -webkit-transition-duration: 1s; -moz-transition-duration: 1s; -ms-transition-duration: 1s; -o-transition-duration: 1s; transition-duration: 1s; -webkit-transition-timing-function: ease-in; -moz-transition-timing-function: ease-in; -ms-transition-timing-function: ease-in; -o-transition-timing-function: ease-in; transition-timing-function: ease-in; }
+#wrap nav { display: block; padding-top: 310px; }
+#wrap nav a { font-family: 'capsuula'; font-size: 18px; text-align: center; padding: 0 30px; color: #162628; text-decoration: none; outline: none; -webkit-transition-property: color; -moz-transition-property: color; -ms-transition-property: color; -o-transition-property: color; transition-property: color; -webkit-transition-duration: 1s; -moz-transition-duration: 1s; -ms-transition-duration: 1s; -o-transition-duration: 1s; transition-duration: 1s; -webkit-transition-timing-function: ease-in; -moz-transition-timing-function: ease-in; -ms-transition-timing-function: ease-in; -o-transition-timing-function: ease-in; transition-timing-function: ease-in; }
 #wrap nav a:hover, #wrap nav a:active { color: #fff; }
 
 @media only screen and (max-width : 768px) { body { background-color: #fff; } }
