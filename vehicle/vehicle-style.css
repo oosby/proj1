@@ -1,0 +1,82 @@
+body {
+	font-family: Helvetica, sans-serif;
+}
+h1 {
+	font-family: 'Helvetica';
+	font-weight: 100;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 40px;
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+}
+h1 span {
+	font-weight: bold;
+}
+section {
+	display: block;
+}
+#container {
+	width: 450px;
+	margin: 75px auto;
+}
+#container ul {
+	margin: 10px 0 0 55px;
+	padding: 0;
+}
+#container ul li {
+	list-style-type: none; 
+	font-size: 12px; 
+	margin: 0; 
+	padding: 0;
+}
+#container ul li button {
+	margin-left: 10px;
+}
+#container #mint_form {
+	padding: 50px;
+	border: 1px solid #ccc;
+}
+.media {
+	margin: -45px 0 45px 0;
+	padding: 0;
+	font-size: 10px;
+	color: #ccc;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+
+/* tablets */
+@media only screen and (max-width : 768px) and (min-width : 490px) {
+	h1 {
+		color: lightblue;
+	}
+	.media:before {
+		visibility: visible;
+		content: "for tablets";
+	}
+	#container {
+		margin-top: 45px;
+	}
+}
+
+/* phones */
+@media only screen and (max-width : 480px) {
+	h1 {
+		color: orange;
+	}
+	#container {
+		width: auto;
+		margin-top: 45px;
+	}
+	.media:after {
+		visibility: visible;
+		content: "for phones";
+	}
+	#mVehicle {
+		padding: 20px;
+		text-align: center;
+	}
+}
