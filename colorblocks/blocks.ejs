@@ -1,0 +1,21 @@
+<hgroup>
+	<h1><%= title %></h1>
+	<h2><%= instructions %></h2>
+	<h3><%= info %></h3>
+</hgroup>
+	<nav>
+	<ul>
+	<% for (var i=0; i<colors.length; i++) { %>
+		<li><%= colors[i] %></li>
+	<% } %>
+		<li>notacolor</li>
+	</ul>
+	</nav>
+	<section>
+    <% for(var i=0; i<colors.length; i++) { %>
+        <div id="<%= colors[i] %>">
+            <%= colors[i] %>
+        </div>
+    <% } %>
+    <button value="reset" id="reset">reset</button>
+	</section>
