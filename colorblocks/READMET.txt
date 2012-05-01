@@ -1,0 +1,2 @@
+I wanted to use the PubSub pattern and localStorage in a POC. When you click on the navigation links they "publish" a message to the page that they were clicked. The color blocks are subscribed and the callback function fades them and updated the innerHTML. 
+To make it a little more fun i used CSS3 transitions for the opacity of the color blocks and tried out the embedjs template. JQuery is only used for add/remove class and document.ready.
