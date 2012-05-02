@@ -40,6 +40,8 @@ pubsub = {
 			if (action === 'publish') {
 				subscribers[max](arg);
 			} else {
+				/* unsubscribe bit here--remove it from the array if you passed in
+				the function that matches subscribers[max] */
 				if (subscribers[max] === arg) {
 					subscribers.splice(max, 1);
 				}
@@ -48,16 +50,43 @@ pubsub = {
 	}
 };
 
-/* param in an obj which will take on all the methods of the publisher obj */
-function makePub(o) {
-	var i;
-	for(i in pubsub) {
-		if (pubsub.hasOwnProperty(i) && typeof pubsub[i] === "function") {
-			o[i] = pubsub[i];
+
+
+/*****************************************************************
+UTILS
+*****************************************************************/
+
+var utils = {
+	addClass : function (elem, name) {
+		var klass = elem.getAttribute('class'),
+			pattern = new RegExp(name);
+					
+		if (pattern.test(klass) === true){
+			return true;
+		} else if (!(klass)){
+			elem.setAttribute("class", name);
+			return false;
+		} else if (klass && klass != name) {
+			elem.setAttribute("class", klass += ' ' +name );
+			return false;
 		}
+	},
+	
+	removeClass : function (elem, name) {
+		var klass = elem.getAttribute("class"),
+			pattern = new RegExp(name);
+			console.log(pattern.test('active'))
+			if (pattern.test(klass) === true) {
+				if (/\s/.test(klass) === false) {
+					elem.removeAttribute('class'); 
+					return false;
+				}
+				elem.setAttribute("class", klass.replace(pattern, ''));
+			}
 	}
-	o.subscribers = {any:[]};
-}
+
+};
+
 
 
 /*****************************************************************
@@ -67,28 +96,19 @@ COLOR BLOCK
 var CB = {
 
 	blocks : {
-		txt : function(navclick) {
+		change : function(navclick) {
 			var elem = document.getElementById(navclick);
 			if (elem !== null) {
 				elem.innerHTML = 'this used to be bright ' + navclick;
-			}
-		},
-		
-		color : function(navclick) {
-			var elem = document.getElementById(navclick);
-			
-			if (elem !== null) {
-				$(elem).addClass('active');
+				utils.addClass(elem, 'active');
 				localStorage.setItem(navclick, 'block');
 			}
-			
 		},
 		
 		storage : function() {
 			for (var i in localStorage) {
 				if (localStorage[i] === 'block') {
-					this.color(i);
-					this.txt(i); 
+					this.change(i);
 				}
 			}
 		},
@@ -98,13 +118,17 @@ var CB = {
 			if (secclick === 'reset') {
 				for (var i in localStorage) {
 					if (localStorage[i] === 'block') {
+						var elems = document.getElementById(i);
+						
 						localStorage.removeItem(i, localStorage[i]);
+						utils.removeClass(elems, 'active');
+						elems.innerHTML = i;
 					}
 				}
-				window.location.reload();
+				
 			} else {
 				localStorage.removeItem(secclick, localStorage[secclick]);
-				$(elem).removeClass('active');
+				utils.removeClass(elem, 'active');
 				elem.innerHTML = secclick;
 			}
 			
@@ -123,28 +147,26 @@ var CB = {
 		colors:['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'], 
 		title:'color blocks', 
 		instructions: 'Click on a nav link to fade the corresponding color block. Click on a color block to reset it or click the reset button to reset all the blocks.',
-		info: 'HTML5, localStorage, CSS3 transitions, javascript pubsub pattern, embedjs template, jQuery 1.7.2',
+		info: 'HTML5, localStorage, CSS3 transitions, javascript pubsub pattern and embedjs template',
 	},
 		
 	
 	init : function() {
-		var html = new EJS({url: 'blocks.ejs'}).render(this.templateData);
+		var html = new EJS({url: 'blocks.ejs'}).render(CB.templateData);
 		document.getElementsByTagName('body')[0].innerHTML = html;
-		pubsub.subscribe(this.blocks.txt, 'navclick');
-		pubsub.subscribe(this.blocks.color, 'navclick');
-		pubsub.subscribe(this.blocks.reset, 'secclick');
+		pubsub.subscribe(CB.blocks.change, 'navclick');
+		pubsub.subscribe(CB.blocks.reset, 'secclick');
 		
 		var nav = document.getElementsByTagName('nav')[0],
 			sec = document.getElementsByTagName('section')[0];
 			
-		nav.addEventListener('click', this.notifyNav, false);
-		sec.addEventListener('click', this.notifySec, false);
-		this.blocks.storage();
+		nav.addEventListener('click', CB.notifyNav, false);
+		sec.addEventListener('click', CB.notifySec, false);
+		CB.blocks.storage();
 	},
 
 }
 
 
-$(document).ready(function(){
-	CB.init();
-})
+window.onload = CB.init;
+
