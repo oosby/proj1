@@ -1,0 +1,50 @@
+feel like the pubsub bit is out of place in the flow. i built my pubsub methods but it feels too soon to do the callbacks so i'm gonna table it until after the skeleton is done and maybe after the UI is done.
+
+taskList = {
+"task1":{"name":"do the dishes", "eta":"1s"},
+"task2":{"name":"vacum the house", "eta":"3s"},
+"task3":{"name":"laundry", "eta":"10s"},
+"task4":{"name":"scrub the toilet", "eta":"2s"}
+}
+
+tasksInProgress{
+"task1":{"name":"do the dishes", "rt":"5s"},
+"task2":{"name":"vacum the house", "rt":"4s"}
+}
+
+tasksCompleted {
+"task1":{"name":"do the dishes", "rt":"5s"},
+"task2":{"name":"vacum the house", "rt":"4s"}
+}
+
+function listTasks(obj) {
+	for in
+	console.log(tasks)
+}
+
+subs {
+	taskQueue : [],
+	taskStarted : [],
+	taskCompleted : [],
+	taskListLoaded : []
+}
+
+queue tasks: 
+- take the first task from "tasklist" and add it to "taskInProgress"
+- remove that same task from "tasklist"
+- notify "startTask"
+
+start tasks:
+- loop through inprogress task and console log "starting message" with the task and estimated time
+- notify "doTask"
+
+do task:
+- loop through the inprogress task and create a new property of realTime
+- setTimeout with realTime
+- callback notify "taskComplete"
+
+complete task:
+- add inprogress task to "tasksCompleted"
+- remove task from inprogress
+- console log the completed task
+- queue next task

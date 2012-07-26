@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Bot-O-Mat</title>
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			document.createElement('header');
+			document.createElement('nav');
+			document.createElement('section');
+			document.createElement('footer');
+		</script>
+	<![endif]-->
+
+
+	<link type="text/css" rel="stylesheet" href="style.css" />
+	<!--[if IE]><link type="text/css" rel="stylesheet" href="styleIE.css" /><![endif]-->
+
+</head>
+<body>
+	<section id="create">
+		<h1>Bot-O-Matic 9000</h1>
+		<div id="createForm">
+			<form>
+				<label for="createName">Name</label><input type="text" name="createBot" id="createName" />
+				<label for="createSelect">Model</label><select id="createSelect" name="createSelect"></select> 
+				
+				<button type="button" id="createSubmit">Create!</button>
+			</form>
+		</div>
+	</section>
+
+	<section id="bot">
+		<div id="botInfo"></div>
+	</section>
+	
+	<section id="chores">
+		<h2>Chores</h2>
+		<div>
+			<h3>todo</h3>
+			<ul id="todo"></ul>
+		</div>
+		<div child=last>
+			<h3>Completed</h3>
+			<ul id="complete"></ul>
+		</div>
+	</section>
+	<footer>
+		<script type="text/javascript" src="js/botomat.js"></script>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+function meh(obj) {
+	console.log(JSON.parse(obj.response).types)
+}
+
+function getit (url, fn) {
+	var doShit = function () {
+		if(hr.readyState === 4 && hr.status === 200) {
+			fn(hr);
+		}
+	};
+
+	try{
+		var hr = new XMLHttpRequest();
+	}
+	catch(e){
+		console.log(e.message);
+		var hr,
+			progIdArray = ['MSXML2.XMLHTTP.3.0', 'MSXML2.XMLHTTP', 'Microsoft.XMLHTTP'],
+			i = progIdArray.length;
+		
+		while(i--) {
+			try {
+				r = new ActiveXObject(progIdArray);
+			}
+			catch(e) { 
+				console.log(e.message);
+			}
+		}
+		
+		if(!hr) {
+			console.warn('no request created');
+		}
+	};
+	
+		
+	hr.onreadystatechange = doShit;
+	hr.open("GET", url, true);
+	hr.send(null);
+	
+	
+}
+
+getit('kinematics.json', meh);
+
+</script>
+</body>
+</html>

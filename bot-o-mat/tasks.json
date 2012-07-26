@@ -1,0 +1,9 @@
+{
+"task1":{"name":"do the dishes", "eta":"1s"},
+"task2":{"name":"sweep the house", "eta":"3s"},
+"task3":{"name":"laundry", "eta":"10s"},
+"task4":{"name":"scrub the toilet", "eta":"2s"},
+"task5":{"name":"peel and de-pith my orange", "eta":"15s"},
+"task6":{"name":"make me a sammich", "eta":"7s"},
+"task7":{"name":"wash the car", "eta":"28s"}
+}

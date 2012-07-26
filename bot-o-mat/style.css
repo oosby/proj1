@@ -1,0 +1,293 @@
+body, h1, h2, h3, h4, ul, li, section {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: Helvetica, sans-serif;
+	font-weight: 100;
+	min-width: 900px;
+	
+	/* http://lea.verou.me/css3patterns/ */
+	
+	background-color:white;
+	background-image: -webkit-radial-gradient(closest-side, transparent 98%, rgba(180, 160, 120, .3) 99%), -webkit-radial-gradient(closest-side, transparent 98%, rgba(120, 70, 20, .4) 99%);
+	background-image: -moz-radial-gradient(closest-side, transparent 98%, rgba(180, 160, 120, .3) 99%), -moz-radial-gradient(closest-side, transparent 98%, rgba(120, 70, 20, .4) 99%);
+	background-size: 80px 80px;
+	-we
+	-moz-background-size: 80px 80px;
+	background-position: 0 0, 40px 40px;
+
+}
+
+section {
+	display: block;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	position: relative;
+	border: 1px solid #ad8e62;
+	border-radius: 10px;
+	box-shadow: 0 0 20px #ccc;
+	background-color: rgba(255,255,255, .9);
+	padding: 20px;
+	margin: 20px;
+}
+
+h1, h2, h3, #bot span {
+	text-shadow: 2px 2px 3px #ccc;
+}
+
+ul, li, span, p, a {
+	color: #333;
+}
+
+#create {
+	width: 50%;
+	margin: -10px auto 50px auto;
+	text-align: center;
+	color: #666;
+}
+
+#create h1 {
+	color: #56adbf;
+	font-size: 32px;
+}
+
+#create #createForm {
+	margin-top: 20px;
+	text-align: left;
+}
+
+#create #createForm span {
+	text-align: center;
+	display: block;
+}
+
+#create #createForm label {
+	font-size: 12px;
+	margin-right: 5px;
+}
+
+#bot {
+	float: left;
+	width: 300px;
+	height: 400px;
+	background-size: 100%;
+	-moz-background-size: 100%;
+}
+
+#bot #botInfo {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	background: rgba(255, 255, 255, .8);
+	border-top: 1px solid #e2e2e2;
+	border-radius: 10px;
+	width: 100%;
+}
+
+#bot span {
+	float: left;
+	padding: 10px;
+	color: #E7B007;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+#bot span[child=last] {
+	float: right;
+}
+
+#bot.aeronautical {
+	background: url(images/aeronautical.jpg) no-repeat;
+}
+
+#bot.radial {
+	background: url(images/radial.jpg) no-repeat;
+}
+
+#bot.arachnid {
+	background: url(images/arachnid.jpg) no-repeat;
+}
+
+#bot.quadrupedal {
+	background: url(images/quadrupedal.jpg) no-repeat;
+}
+
+#bot.bipedal {
+	background: url(images/bipedal.jpg) no-repeat;
+}
+
+#bot.unipedal {
+	background: url(images/unipedal.jpg) no-repeat;
+}
+
+#chores {
+	float: right;
+}
+
+#chores h2 {
+	font-size: 20px;
+	margin-bottom: 20px;
+	color: #E7B007;
+}
+
+#chores h3 {
+	font-size: 16px;
+	color: #E7B007;
+}
+
+#chores div {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 250px;
+	border: 1px #d0b590 solid;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+#chores > div {
+	float: left;
+}
+
+#chores > div[child=last] {
+	margin-left: 20px;
+}
+
+#chores div ul {
+	float: left;
+	font-size: 12px;
+	width: 100%;
+}
+
+#chores div ul li {
+	list-style: none;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #d0b590;
+}
+
+#chores ul li span {
+	display: block;
+}
+
+#chores ul li .name:before {
+	content: 'name: ';
+	font-weight: bold;
+}
+
+#chores ul li .eta:before {
+	content: 'ETA: ';
+	font-weight: bold;
+}
+
+#chores ul li .rt:before {
+	content: 'Actual Time: ';
+	font-weight: bold;
+}
+
+
+
+/* TABLET-ISH */
+@media only screen and (min-width : 550px) and (max-width : 920px) {
+
+body{
+	min-width:700px;
+	background-color:white;
+	/* http://lea.verou.me/css3patterns/ */
+	background-image: -moz-radial-gradient(closest-side, transparent 98%, rgba(85, 175, 200, .3) 99%), -moz-radial-gradient(closest-side, transparent 98%, rgba(230, 175, 5, .6) 99%);
+	background-image: -webkit-radial-gradient(closest-side, transparent 98%, rgba(85, 175, 200, .3) 99%), -webkit-radial-gradient(closest-side, transparent 98%, rgba(230, 175, 5, .6) 99%);
+	background-size: 80px 80px;
+	-moz-background-size: 80px 80px;
+	background-position: 0 0, 40px 40px;
+}
+
+section {
+	margin: 20px;
+	padding: 20px;
+}
+
+#chores > div {
+	clear: both;
+	margin: 0;
+}
+#chores > div[child=last] {
+	margin-left: 0;
+	margin-top: 20px;
+}
+#chores h2 {
+	font-size: 16px;
+}
+#chores h3 {
+	font-size: 12px;
+}
+}
+
+/* GIANT DROID-ISH PHONES */
+@media only screen and (max-width : 550px) {
+
+body{
+	min-width:300px;
+}
+
+section {
+	margin: 10px;
+	padding: 10px;
+}
+
+#create h1 {
+	font-size: 18px;
+}
+
+#bot {
+	width: 150px;
+	height: 150px;
+	background-size: 100%;
+	-moz-background-size: 100%;
+}
+#bot span {
+	font-size: 12px;
+	padding: 5px;
+}
+#bot span[child=last] {
+	float: left;
+}
+#chores > div {
+	clear: both;
+	width: 180px;
+	margin: 0
+}
+#chores > div[child=last] {
+	margin-left: 0;
+	margin-top: 20px;
+}
+#chores h2 {
+	font-size: 16px;
+}
+#chores h3 {
+	font-size: 12px;
+}
+}
+
+
+/* IPHONE-ISH */
+@media only screen and (max-width : 320px), 
+only screen and (min-device-pixel-ratio : 1.5) {
+
+section {
+	margin: 5px;
+}
+
+#bot {
+	width: 100px;
+	height: 100px;
+	background-size: 100%;
+	-moz-background-size: 50%;
+}
+
+#chores > div {
+	width: 100px;
+}
+}

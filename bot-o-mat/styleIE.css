@@ -1,0 +1,18 @@
+body {
+	background:white url(images/bg.png) repeat;
+}
+
+section {
+	background-color: white;
+	border: 1px #d0b590 solid;
+}
+
+#chores div {
+	border: 1px solid #f0d054;
+}
+
+#bot #botInfo {
+	background: #fff;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+	filter: alpha(opacity=80);
+}
